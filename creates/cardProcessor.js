@@ -1,6 +1,7 @@
 // We recommend writing your creates separate like this and rolling them
 // into the App definition at the end.
-const trelloHelper = require('../lib/trelloApiHelper');
+const trelloHelper = require('../lib/trelloApiHelper')
+
 module.exports = {
   key: 'cardProcessor',
 
@@ -17,7 +18,15 @@ module.exports = {
     inputFields: [{
         key: 'sourceList',
         required: true,
-        type: 'string'
+        type: 'string',
+        helpText: 'The Trello list ID of the the list to search for card. ' +
+          'you can open a card and add .json to the URL to find list and board ids'
+      },
+      {
+        key: 'destinationBoard',
+        required: true,
+        type: 'string',
+        helpText: 'The board that houses the list where the card will be moved if it passes the filter test.'
       },
       {
         key: 'destinationList',
@@ -28,88 +37,17 @@ module.exports = {
       {
         key: 'filterAction',
         choices: {
-          DD: 'Due Date'
+          DD: 'Due Date is Past'
         },
         required: true,
         type: 'string',
-        helpText: 'Available for future expansion.'
+        helpText: 'Only Due Date filtering available now - more to come.'
       },
     ],
     perform: (z, bundle) => {
-      // const promise = z.request({
-      //   url: 'http://57b20fb546b57d1100a3c405.mockapi.io/api/recipes',
-      //   method: 'POST',
-      //   body: JSON.stringify({
-      //     name: bundle.inputData.name,
-      //     directions: bundle.inputData.directions,
-      //     authorId: bundle.inputData.authorId,
-      //     style: bundle.inputData.style,
-      //   }),
-      //   headers: {
-      //     'content-type': 'application/json'
-      //   }
-      // });
-
-
-      const fake_data = {
-          "test": "This is my fake result"
-        },
-        promise = Promise.resolve(fake_data);
-      return promise.then(response => {
-        console.log(response);
-        return response;
-
-      });
-    },
-    //   const promise = Promise.resolve({
-    //     content: {
-
-    //     }
-    //   });
-    //   console.log(promise);
-    //   return promise.then((response) => JSON.parse(response.content));
-    // },
-
-    // In cases where Zapier needs to show an example record to the user, but we are unable to get a live example
-    // from the API, Zapier will fallback to this hard-coded sample. It should reflect the data structure of
-    // returned records, and have obviously dummy values that we can show to any user.
-    sample: {
-      id: 1,
-      createdAt: 1472069465,
-      name: 'Best Spagetti Ever',
-      authorId: 1,
-      directions: '1. Boil Noodles\n2.Serve with sauce',
-      style: 'italian'
+      z.console.log("Running the cardProcessor", bundle);
+      return trelloHelper.moveCardsByFilter(z, bundle);
     },
 
-    // If the resource can have fields that are custom on a per-user basis, define a function to fetch the custom
-    // field definitions. The result will be used to augment the sample.
-    // outputFields: () => { return []; }
-    // Alternatively, a static field definition should be provided, to specify labels for the fields
-    outputFields: [{
-        key: 'id',
-        label: 'ID'
-      },
-      {
-        key: 'createdAt',
-        label: 'Created At'
-      },
-      {
-        key: 'name',
-        label: 'Name'
-      },
-      {
-        key: 'directions',
-        label: 'Directions'
-      },
-      {
-        key: 'authorId',
-        label: 'Author ID'
-      },
-      {
-        key: 'style',
-        label: 'Style'
-      }
-    ]
   }
 };

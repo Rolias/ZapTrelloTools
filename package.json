@@ -15,8 +15,10 @@
     "npm": ">=2.0.0"
   },
   "dependencies": {
+    "chai": "4.0.2",
     "eslint": "4.0.0",
     "node-trello": "1.2.1",
+    "sinon": "2.3.5",
     "zapier-platform-core": "1.0.11"
   },
   "devDependencies": {
