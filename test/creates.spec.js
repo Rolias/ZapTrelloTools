@@ -35,10 +35,10 @@
          }
        };
 
-       appTester(App.creates.cardProcessor.operation.perform, bundle)
+       appTester(App.creates.moveCardByFilter.operation.perform, bundle)
          .then((result) => {
-           console.log("WHEE");
-           console.log(result);
+           //TODO I could write some real tests but really the tests are to 
+           //watch the console.logs - i.e. integration tests. 
            done();
          });
 

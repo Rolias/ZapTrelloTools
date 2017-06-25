@@ -3,13 +3,13 @@
 const trelloHelper = require('../lib/trelloApiHelper')
 
 module.exports = {
-  key: 'cardProcessor',
+  key: 'moveCardByFilter',
 
   // You'll want to provide some helpful display labels and descriptions
   // for users. Zapier will put them into the UX.
-  noun: 'Move Cards To New List',
+  noun: 'Move Cards To New List Based on Filter',
   display: {
-    label: 'Card List Processor',
+    label: 'Move Card by Filter',
     description: 'Find any cards on source list that pass filter and move them to destination list.'
   },
 

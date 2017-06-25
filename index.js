@@ -1,4 +1,4 @@
-const cardProcessor = require('./creates/cardProcessor'),
+const moveCardByFilter = require('./creates/moveCardByFilter'),
   movePastDuePathCards = require('./creates/movePastDuePathCards')
 
 // Now we can roll up all our behaviors in an App.
@@ -22,7 +22,7 @@ const App = {
 
   // If you want your creates to show up, you better include it here!
   creates: {
-    [cardProcessor.key]: cardProcessor,
+    [moveCardByFilter.key]: moveCardByFilter,
     [movePastDuePathCards.key]: movePastDuePathCards
   }
 };

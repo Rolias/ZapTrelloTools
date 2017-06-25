@@ -1,17 +1,17 @@
 {
-  "name": "zapier-platform-example-app-create",
+  "name": "tod-trello-helper",
   "version": "1.0.0",
-  "description": "An example app for the Zapier platform.",
-  "repository": "zapier/zapier-platform-example-app-create",
-  "homepage": "https://zapier.com/",
-  "author": "Bryan Helmig <bryan@zapier.com>",
+  "description": "Tools to help do some specific Trello tasks.",
+  "repository": "github.com/Rolias/ZapTrelloTools",
+  "homepage": "https://pluralsight.com",
+  "author": "Tod Gentille <tod-gentille@pluralsight.com",
   "license": "BSD-3-Clause",
   "main": "index.js",
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha --recursive"
   },
   "engines": {
-    "node": ">=4.3.0",
+    "node": ">=6.10.2",
     "npm": ">=2.0.0"
   },
   "dependencies": {
